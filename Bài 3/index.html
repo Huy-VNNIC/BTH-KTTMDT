@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #root {
+            padding: 24px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        .red {
+            color: red;
+        }
+
+        input,
+        select {
+            padding: 9px 9px 8px 9px;
+            background-color: #c6c6c6;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid gray;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        input[type='file'] {
+            all: unset;
+        }
+
+        .header {
+            text-transform: uppercase;
+            color: #8e161d;
+            margin-bottom: 24px;
+        }
+
+        .main .main_title {
+            background-color: #8e161d;
+            color: white;
+            padding: 12px;
+            text-transform: uppercase;
+        }
+
+        .main .form {
+            border: 1px solid gray;
+        }
+
+        .field {
+            padding: 12px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .field input {
+            font-size: 18px;
+        }
+
+        table tr:nth-child(5) td:nth-child(2) .field {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        table tr:nth-child(1) td:nth-child(2) .field input[type=text] {
+            margin-right: 4px;
+        }
+
+        table tr:nth-child(1) td:nth-child(2) .field input[type=text]:first-child,
+        table tr:nth-child(1) td:nth-child(2) .field input[type=text]:nth-child(3) {
+            width: 120px;
+        }
+
+        table tr:nth-child(1) td:nth-child(2) .field input[type=radio] {
+            margin: 0 10px;
+        }
+
+        table tr:nth-child(2) td:nth-child(2) .field input:first-child {
+            width: 40%;
+            margin-right: 24px;
+        }
+
+        table tr:nth-child(2) td:nth-child(2) .field input:last-child {
+            width: 50%;
+        }
+
+        table tr:nth-child(2) td:nth-child(2) .field label {
+            width: 30%;
+            text-align: center;
+        }
+
+        table tr:nth-child(3) td:nth-child(2) .field input {
+            width: 100%;
+        }
+
+        table tr:nth-child(4) td:nth-child(2) .field input {
+            width: 100%;
+        }
+
+        table tr:nth-child(5) td:nth-child(2) .field input {
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        table tr:nth-child(5) td:nth-child(2) .field span {
+            font-style: italic;
+        }
+
+        table tr:nth-child(6) td:nth-child(2) .field {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        table tr:nth-child(6) td:nth-child(2) .field .field_2 {
+            display: flex;
+            margin-bottom: 12px;
+            width: 100%;
+        }
+
+        table tr:nth-child(6) td:nth-child(2) .field .field_2 label {
+            flex: 1;
+            text-align: center;
+        }
+
+        table tr:nth-child(6) td:nth-child(2) .field .field_2 select {
+            width: 40%;
+        }
+
+        table tr:nth-child(8) td:nth-child(2) .field {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 48px;
+        }
+
+        table tr:nth-child(8) td:nth-child(2) .field span:nth-child(2) {
+            color: #8e161d;
+            margin-bottom: 6px;
+        }
+
+        table tr:nth-child(8) td:nth-child(2) .field span:nth-child(3) {
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        table tr:nth-child(9) td:nth-child(2) .field {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 48px;
+        }
+
+        table tr:nth-child(9) td:nth-child(2) .field .field_2 {
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        table tr:nth-child(9) td:nth-child(2) .field .field_2 input {
+            height: 36px;
+            margin-right: 12px;
+        }
+
+        table tr:nth-child(9) td:nth-child(2) .field .field_2 .capcha {
+            position: relative;
+            user-select: none;
+        }
+
+        table tr:nth-child(9) td:nth-child(2) .field .field_2 .capcha img {
+            width: 205px;
+            background: #000;
+            border-radius: 5px;
+        }
+
+        table tr:nth-child(9) td:nth-child(2) .field .field_2 .capcha span {
+            border: 0;
+            font-style: normal;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 100%;
+            color: #fff;
+            font-size: 35px;
+            text-align: center;
+            letter-spacing: 10px;
+            transform: translate(-50%, -50%);
+            text-shadow: 0px 0px 2px #b1b1b1;
+            font-family: 'Noto Serif', serif;
+        }
+
+        table tr:nth-child(9) td:nth-child(2) .field span {
+            font-size: 20px;
+            font-style: italic;
+            padding-bottom: 4px;
+            margin-bottom: 6px;
+            border-bottom: 1px solid gray;
+        }
+
+        .form .submit {
+            padding: 10px 24px;
+            display: flex;
+            margin: 24px auto;
+            font-size: 23px;
+            color: white;
+            text-transform: uppercase;
+            background-color: #8e161d;
+            border: 0;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <h1 class="header">đăng ký xét tuyển</h1>
+        <div class="main">
+            <h2 class="main_title">thông tin hồ sơ</h2>
+            <form action="" class="form">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="field"><span><label for="ho">Họ</label> và <label for="ten">tên</label>(<span
+                                        class="red">*</span>)</span></div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <input type="text" name="" id="ho" placeholder="Họ">
+                                <input type="text" name="" id="" placeholder="Tên lót">
+                                <input type="text" name="" id="ten" placeholder="Tên">
+                                <input type="radio" name="gender" id="" checked><span>Nam</span>
+                                <input type="radio" name="gender" id=""><span>Nữ</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label for="birtday">Ngày sinh (<span class="red">*</span>)</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <input type="date" name="" id="birtday">
+                                <label for="sdt">Số điện thoại (<span class="red">*</span>)</label>
+                                <input type="text" name="" id="sdt">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label for="email">Email (<span class="red">*</span>)</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <input type="email" name="" id="email">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label for="facebook">Facebook (<span class="red">*</span>)</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <input type="text" name="" id="facebook">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label for="address">Địa chỉ liên lạc (<span class="red">*</span>)</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <input type="text" name="" id="address" placeholder="Địa chỉ nhân giấy báo trúng tuyển">
+                                <span>(nhập số nhà, tên đường, thôn/tổ, phường/xã, quận/huyện, tỉnh/thành)</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label for="tinh">Tỉnh thành (<span class="red">*</span>)</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <div class="field_2">
+                                    <select id="tinh">
+                                        <option value="" disabled selected hidden>Chọn tỉnh thành</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <label for="school">Trường THPT (<span class="red">*</span>)</label>
+                                    <select id="school">
+                                        <option value="" disabled selected hidden>Chọn trường THPT</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <span>(Ghi chú: Nếu là thí sinh tự do thì bạn chọn trường THPT đã tốt nghiệp trước
+                                    đó.)</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label for="specialization">Ngành đăng ký (<span class="red">*</span>)</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <select id="specialization">
+                                    <option value="" disabled selected hidden>Chọn ngành</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label for="file">Tập tin đính kèm (<span class="red">*</span>)</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <input type="file" name="" id="file">
+                                <span>Thêm file</span>
+                                <span>(File có phần mở rộng là 3F, JPG, PNG BAR, 2)</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label for="codeSecurity">Mã bảo vệ (<span class="red">*</span>)</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <div class="field_2">
+                                    <input type="text" name="" id="codeSecurity">
+                                    <div class="capcha">
+                                        <img src="../img/captcha-bg.png" alt="">
+                                        <span>C3ZV2</span>
+                                    </div>
+                                </div>
+                                <span>Nhập đúng các kí tự ở hình bên phải vào ô trống bên phải</span>
+                                <span>(<span class="red">*</span>): là hững trường bắt buộc nhập.</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <button class="submit">đăng ký xét tuyển</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

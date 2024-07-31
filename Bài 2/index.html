@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* common */
+        .border_bottom {
+            border-bottom: 1px solid gray;
+        }
+
+        /* Navbar */
+        .navbar {
+            width: 100%;
+        }
+
+        .navbar .navbar_top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #404f71;
+            padding: 6px;
+        }
+
+        .navbar .navbar_top .navbar_top_left {
+            padding-left: 24px;
+        }
+
+        .navbar .navbar_top .navbar_top_left img {
+            width: 25px;
+            height: 15px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .navbar .navbar_top .navbar_top_left img:first-child {
+            margin-right: 4px;
+        }
+
+        .navbar .navbar_top .navbar_top_right {
+            padding-right: 24px;
+        }
+
+        .navbar .navbar_top .navbar_top_right input {
+            height: 30px;
+            padding-left: 12px;
+            outline: none;
+            border: 0;
+        }
+
+        .navbar .navbar_top .navbar_top_right button {
+            padding: 7.5px 8px;
+            background-color: gray;
+            border: 0;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar_bottom {
+            background-color: #2359ac;
+            padding: 0 24px;
+        }
+
+        .navbar_bottom .link_list {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar_bottom .link_list .link_item {
+            padding: 12px 12px;
+            border-right: 1px solid white;
+            transition: background-color 0.4s ease;
+        }
+
+        .navbar_bottom .link_list .link_item:hover {
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .navbar_bottom .link_list .link_item .link_item_link {
+            text-transform: uppercase;
+            color: white;
+            transition: color 0.4s ease;
+        }
+
+        .navbar_bottom .link_list .link_item:hover .link_item_link {
+            color: #2359ac;
+        }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 600px;
+            object-fit: fill;
+        }
+
+        /* Main */
+        .body {
+            width: 100%;
+            padding: 12px 24px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        /* Main - sidebar */
+        .sidebar {
+            width: 30%;
+        }
+
+        .sidebar .sidebar_title {
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar .sidebar_title h2 {
+            text-transform: uppercase;
+            color: #2359ac;
+        }
+
+        /* Main - category */
+        .sidebar .category_list {
+            margin-left: 24px;
+        }
+
+        .sidebar .category_list .category_item {
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar .category_list .category_item .category_item_link {
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Main - blog */
+        .sidebar .blog {
+            width: 100%;
+        }
+
+        .sidebar .blog a img {
+            width: 100%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            margin-bottom: 4px;
+        }
+
+        /* Main - container */
+        .container {
+            width: 70%;
+        }
+
+        .container_title {
+            display: flex;
+        }
+
+        .container_title h2 {
+            text-transform: uppercase;
+            margin-right: 2px;
+        }
+
+        .container_title span {
+            flex: 1;
+            border-width: 2px;
+            transform: translateY(-6px);
+        }
+
+        .container .container_list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 30px 0 30px 16px;
+            gap: 24px;
+        }
+
+        .container .container_list .container_item {
+            width: calc(94% /2);
+
+        }
+
+        .container .container_list .container_item a p {
+            margin-top: 12px;
+            font-weight: bold;
+            color: #2359ac;
+            font-size: 23px;
+        }
+
+        .container .container_list .container_item a img {
+            width: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #bdbdbd;
+            padding: 16px 0;
+            border-top: 2px solid #2359ac;
+        }
+
+        .footer p {
+            font-weight: bold;
+        }
+
+        .footer p:first-child {
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <navbar class="navbar">
+            <div class="navbar_top">
+                <div class="navbar_top_left">
+                    <img src="../img/230px-Flag_of_North_Vietnam_(1955–1976).svg.png" alt="">
+                    <img src="../img/la-co-vuong-quoc-anh.jpg" alt="">
+                </div>
+                <div class="navbar_top_right">
+                    <input type="text" placeholder="Nhập từ cần tìm">
+                    <button>Tìm Kiếm</button>
+                </div>
+            </div>
+            <div class="navbar_bottom">
+                <ul class="link_list">
+                    <li class="link_item"><a href="#" class="link_item_link">trang chủ</a></li>
+                    <li class="link_item"><a href="#" class="link_item_link">giới thiệu</a></li>
+                    <li class="link_item"><a href="#" class="link_item_link">sản phẩm</a></li>
+                    <li class="link_item"><a href="#" class="link_item_link">giỏ hàng</a></li>
+                    <li class="link_item"><a href="#" class="link_item_link">liên hệ</a></li>
+                </ul>
+            </div>
+        </navbar>
+        <div class="banner">
+            <img src="../img/bg (16).jpg" alt="">
+        </div>
+        <div class="body">
+            <div class="sidebar">
+                <div class="sidebar_title border_bottom">
+                    <h2>danh mục sản phẩm</h2>
+                </div>
+                <ul class="category_list">
+                    <li class="category_item border_bottom"><a href="#" class="category_item_link">Hàng gia dụng</a>
+                    </li>
+                    <li class="category_item border_bottom"><a href="#" class="category_item_link">Thời trang & Phụ
+                            kiện</a></li>
+                    <li class="category_item border_bottom"><a href="#" class="category_item_link">Thiết bị điện tử</a>
+                    </li>
+                </ul>
+                <div class="blog">
+                    <a href="#"><img src="../img/bg.jpg" alt=""></a>
+                    <a href="#"><img src="../img//bg (16).jpg" alt=""></a>
+                </div>
+            </div>
+            <section class="container">
+                <div class="container_title">
+                    <h2>danh sách sản phẩm</h2>
+                    <span class="border_bottom"></span>
+                </div>
+                <ul class="container_list">
+                    <li class="container_item"><a href="#">
+                            <img src="../img/bg (16).jpg" alt="">
+                            <p>Bút luyện viết chữ</p>
+                        </a></li>
+                    <li class="container_item"><a href="#">
+                            <img src="../img/bg (16).jpg" alt="">
+                            <p>Bút luyện viết chữ</p>
+                        </a></li>
+                    <li class="container_item"><a href="#">
+                            <img src="../img/bg (16).jpg" alt="">
+                            <p>Bút luyện viết chữ</p>
+                        </a></li>
+                    <li class="container_item"><a href="#">
+                            <img src="../img/bg (16).jpg" alt="">
+                            <p>Bút luyện viết chữ</p>
+                        </a></li>
+                </ul>
+            </section>
+        </div>
+        <footer class="footer">
+            <p>Địa chỉ: 254 Nguyễn Văn Linh, Quân Thanh Khê - Tp. Đà Nẵng</p>
+            <p>Điện thoại: (+84) 236.3650403</p>
+        </footer>
+    </div>
+</body>
+
+</html>
